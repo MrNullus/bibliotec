@@ -35,6 +35,7 @@ if ($exclui == 1) {
     <script type='text/javascript'>
         alert('Aluno deletado com sucesso!'); 
         window.location = '". url_base() ."/views/alunos.php' 
-    </script>";
+    </script>
+    ";
 }
 ?>

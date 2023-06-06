@@ -25,6 +25,7 @@
     <?php
     while($linha = mysqli_fetch_array($consulta_alunos)){
         echo '<tr>';
+            echo '<a href="#'.$linha['RM'].'"></a>';
             echo '<td>' .$linha['RM']. '</td>';                                                                 
             echo '<td>' .$linha['NOME']. '</td>';
             echo '<td>' .$linha['TELEFONE']. '</td>';
@@ -36,8 +37,13 @@
             echo '<td>' .$linha['ANO_INGRESSO']. '</td>';
             echo '<td>' .$linha['PERIODO']. '</td>';
             
-            echo 
-                '<td>
+            echo '
+                <td>
+                    <a href="./Cadastros/aluno.php?rm='.$linha['RM'] .'">
+                        Editar
+                    </a>
+                </td>
+                <td>
                     <a href="../actions/aluno/deletar.php?rm='.$linha['RM'] .'">
                         Deletar
                     </a>

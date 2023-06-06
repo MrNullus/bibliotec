@@ -16,7 +16,7 @@
         <th>Ano</th>
         <th>Exemplares</th>
         <th>Situação</th>
-        <th>Deletar</th>
+        <th>Ações</th>
     </tr>
     
     <?php
@@ -31,14 +31,18 @@
             echo '<td>' .$linha['EXEMPLAR']. '</td>';
             echo '<td>' .$linha['SITUACAO']. '</td>';
 
-            echo 
-                '<td>
+            echo ' 
+                <td>
+                    <a href="./Cadastros/livro.php?id_livro='.$linha['ID_LIVRO'] .'">
+                        Editar
+                    </a>
+                    <br><br><br>
                     <a href="../actions/livro/deletar.php?id_livro='.$linha['ID_LIVRO'] .'">
                         Deletar
                     </a>
                 </td>
             </tr>';
-    }
+    }   
     ?>
 </table>
 

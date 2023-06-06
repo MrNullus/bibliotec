@@ -19,8 +19,7 @@
 
 <?php
     while($linha = mysqli_fetch_array($consulta_emprestimos)){
-        if ($linha['SITUACAO'] == 'Aceito' || $linha['SITUACAO'] == 'Vencido') {
-            echo 
+        echo 
             '<tr>';
                 echo '<td>' .$linha['TITULO']. '</td>';
                 echo '<td>' .$linha['RM']. '</td>';
@@ -30,14 +29,13 @@
                 echo '<td>' .$linha['SITUACAO']. '</td>';
                 echo '<td>' .$linha['MULTA']. '</td>';
 
-                echo 
-                    '<td>
-                        <a href="../actions/emprestimo/atualizar.php?id='.$linha['ID_EMP'] .'">
-                            Atualizar
+                echo '
+                    <td> 
+                        <A href="./Cadastros/emprestimo.php?id_emp='.$linha['ID_EMP'].'">
+                            Editar
                         </a>
-                    </td>
+                    </td> 
             </tr>';
-        }
     }  
     ?>
 

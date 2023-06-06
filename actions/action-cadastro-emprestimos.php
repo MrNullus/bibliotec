@@ -2,12 +2,12 @@
 require '../config.php';
 
 $dados = [ 
-  'id_livro'  => $_POST['escolha_livro'],
-  'rm'  => $_POST['escolha_aluno'],
+  'id_livro'       => $_POST['escolha_livro'],
+  'rm'             => $_POST['escolha_aluno'],
   'data-retirada'  => $_POST['data-retirada'],
-  'data-devolucao'  => $_POST['data-devolucao'],
-  'situacao' => $_POST['situacao'],
-  'multa' =>  $_POST['multa']
+  'data-devolucao' => $_POST['data-devolucao'],
+  'situacao'       => $_POST['situacao'],
+  'multa'          =>  $_POST['multa']
 ];
 
 $sql = " 
