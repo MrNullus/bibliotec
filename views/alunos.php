@@ -14,12 +14,12 @@
         <th>Telefone</th>
         <th>Data Nasc</th>
         <th>Email</th>
-        <th>Senha</th>
+        <th>Email</th>
         <th>Curso</th>
         <th>Serie</th>
         <th>Ano Ingresso</th>
         <th>Periodo</th>
-        <th>Deletar</th>
+        <th>Ações</th>
     </tr>
 
     <?php
@@ -31,7 +31,6 @@
             echo '<td>' .$linha['TELEFONE']. '</td>';
             echo '<td>' .$linha['DATA_NASC']. '</td>';
             echo '<td>' .$linha['EMAIL']. '</td>';
-            echo '<td>' .$linha['SENHA']. '</td>';
             echo '<td>' .$linha['CURSO']. '</td>';
             echo '<td>' .$linha['SERIE']. '</td>';
             echo '<td>' .$linha['ANO_INGRESSO']. '</td>';
@@ -42,8 +41,8 @@
                     <a href="./Cadastros/aluno.php?rm='.$linha['RM'] .'">
                         Editar
                     </a>
-                </td>
-                <td>
+                    <br/><br/>
+                    
                     <a href="../actions/aluno/deletar.php?rm='.$linha['RM'] .'">
                         Deletar
                     </a>
