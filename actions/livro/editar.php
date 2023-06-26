@@ -26,13 +26,13 @@ mysqli_query(
         ANO         = '". $dados['ano'] ."',
         EXEMPLAR    = '". $dados['exemplar'] ."',
         SITUACAO    = '". $dados['situacao'] ."'
-    WHERE ID_LIVRO = '". $_POST['id_livro'] ."'
-    "
+    WHERE 
+        ID_LIVRO    = '". $_POST['id_livro'] ."'"
 );
 
-// printf("Errormessage: %s\n", $conexao->error);
+// printf("Errormessage: %s\n", $conexao->error); 
 // print_r($dados);
-
+  
 echo "
     <script type='text/javascript'>
         alert('Livro editado com sucesso!'); 
