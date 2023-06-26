@@ -18,7 +18,7 @@
 
       <ul class="list-link">
 
-
+ 
         <li class="list-item">  
           <a href="<?php echo url_base(); ?>/views/alunos.php" class="custom-btn btn-14">Alunos</a>
         </li>
@@ -31,7 +31,7 @@
 
 
         <li class="list-item">
-          <a href="<?php echo url_base(); ?>/views/Cadastros/aluno.php" class="custom-btn btn-14"> Cadastrar ALunos</a>
+          <a href="<?php echo url_base(); ?>/views/Cadastros/aluno.php" class="custom-btn btn-14"> Cadastrar Alunos</a>
         </li>
         <li class="list-item">
           <a href="<?php echo url_base(); ?>/views/Cadastros/livro.php" class="custom-btn btn-14">Cadastrar Livros</a>
