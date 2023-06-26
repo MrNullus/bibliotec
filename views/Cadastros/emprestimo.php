@@ -1,4 +1,4 @@
-<?php
+<?php 
     require '../../config.php';
     require '../componentes/header.php';
 ?>
@@ -51,7 +51,7 @@
             </div>
             
             <div class="form-group">
-                <label for="situacao">Situação:</label>
+                <label for="situacao" style="display: none;">Situação:</label>
                 <input type="hidden" name="situacao" value="Aceito" />
             </div>
 
@@ -79,14 +79,16 @@
                     <div class="form-group">
                         <label for="escolha_aluno">Selecione um aluno</label>
                         <select name="escolha_aluno">
-                            <option value="<?php echo $linha_atual['RM']; ?>">
-                                <?php echo $linha_atual['NOME']; ?>
-                            </option>
                             <?php 
-                                while ($linha = mysqli_fetch_array($consulta_alunos)) {
+                                while ($linha_alunos = mysqli_fetch_array($consulta_alunos)) {
+                                    $checked = $linha_alunos['RM'] == $linha_atual['RM']? 'true' : 'false';
+
                                     echo '
-                                    <option value="'. $linha['RM'] .'">
-                                        '. $linha['NOME'] .'
+                                    <option 
+                                        value="'. $linha_alunos['RM'] .'"
+                                        cheked="'. $checked .'"
+                                    >
+                                        '. $linha_alunos['NOME'] .'
                                     </option>';
                                 };
                             ?>
@@ -96,14 +98,16 @@
                     <div class="form-group">
                         <label for="escolha_livro">Selecione um livro</label>
                         <select name="escolha_livro">
-                            <option value="<?php echo $linha_atual['ID_LIVRO']; ?>">
-                                <?php echo $linha_atual['TITULO']; ?>
-                            </option>
                             <?php
-                                while ($linha = mysqli_fetch_array($consulta_livros)) {
+                                while ($linha_livros = mysqli_fetch_array($consulta_livros)) {
+                                    $checked = $linha_atual['ID_LIVRO'] == $linha_livros['ID_LIVRO']? 'true' : 'false';                                            
+
                                     echo '
-                                    <option value="'. $linha['ID_LIVRO'] .'">
-                                        '. $linha['TITULO'] .'
+                                    <option 
+                                        value="'. $linha_livros['ID_LIVRO'] .'"
+                                        cheked="'. $checked .'"
+                                    >
+                                        '. $linha_livros['TITULO'] .'
                                     </option>';
                                 };
                             ?>
