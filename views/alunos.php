@@ -1,6 +1,10 @@
 <?php
     require '../config.php';
     require './componentes/header.php';
+
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['usuario'];  
+
 ?>
 
 <center>
@@ -14,12 +18,13 @@
         <th>Telefone</th>
         <th>Data Nasc</th>
         <th>Email</th>
-        <th>Email</th>
+        <th>Senha</th>
         <th>Curso</th>
         <th>Serie</th>
         <th>Ano Ingresso</th>
         <th>Periodo</th>
-        <th>Ações</th>
+        <th>Editar</th>
+        <th>Deletar</th>
     </tr>
 
     <?php
@@ -31,6 +36,7 @@
             echo '<td>' .$linha['TELEFONE']. '</td>';
             echo '<td>' .$linha['DATA_NASC']. '</td>';
             echo '<td>' .$linha['EMAIL']. '</td>';
+            echo '<td>' .$linha['SENHA']. '</td>';
             echo '<td>' .$linha['CURSO']. '</td>';
             echo '<td>' .$linha['SERIE']. '</td>';
             echo '<td>' .$linha['ANO_INGRESSO']. '</td>';
@@ -41,8 +47,8 @@
                     <a href="./Cadastros/aluno.php?rm='.$linha['RM'] .'">
                         Editar
                     </a>
-                    <br/><br/>
-                    
+                </td>
+                <td>
                     <a href="../actions/aluno/deletar.php?rm='.$linha['RM'] .'">
                         Deletar
                     </a>
@@ -55,7 +61,12 @@
 </table>
 
 </center>
+<?php
+} else {
+        header('location: ../index.php') ;
+    }
 
+?>
 <?php
     require './componentes/footer.php';
 ?>

@@ -1,6 +1,10 @@
 <?php
     require '../config.php';
     require './componentes/header.php';
+
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['usuario'];  
+
 ?>
     
 <center>
@@ -33,7 +37,7 @@
 
             echo ' 
                 <td>
-                    <a href="./Cadastros/livro.php?id_livro='.$linha['ID_LIVRO'] .'">
+                    <a href="../views/cadastros/livro.php?id_livro='.$linha['ID_LIVRO'] .'">
                         Editar
                     </a>
                     <br><br><br>
@@ -47,6 +51,12 @@
 </table>
 
 </center> 
+<?php
+} else {
+        header('location: ../index.php') ;
+    }
+
+?>
 
 
 <?php

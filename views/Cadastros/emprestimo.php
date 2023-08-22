@@ -1,6 +1,9 @@
-<?php 
+<?php
     require '../../config.php';
     require '../componentes/header.php';
+
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['usuario']; 
 ?>
 
 <link href="<?php echo url_base(); ?>/css/form.css" rel="stylesheet" type="text/css" />
@@ -13,7 +16,6 @@
             <div class="form-group">
                 <label for="escolha_aluno">Selecione um aluno</label>
                 <select name="escolha_aluno">
-                    <option>Selecione um Aluno</option>
                     <?php
                         while ($linha = mysqli_fetch_array($consulta_alunos)) {
                             echo '
@@ -28,7 +30,6 @@
             <div class="form-group">
                 <label for="escolha_livro">Selecione um livro</label>
                 <select name="escolha_livro">
-                    <option>Selecione um Livro</option>
                     <?php
                         while ($linha = mysqli_fetch_array($consulta_livros)) {
                             echo '
@@ -47,11 +48,11 @@
             
             <div class="form-group">
                 <label for="datadevolucao">Data de Devolução:</label>
-                <input type="date" class="form-control" name="data-devolucao">
-            </div>
+                <input type="date" class="form-control" name="data-devolucao" >
+            </div> 
             
             <div class="form-group">
-                <label for="situacao" style="display: none;">Situação:</label>
+                <label for="situacao">Situação:</label>
                 <input type="hidden" name="situacao" value="Aceito" />
             </div>
 
@@ -79,44 +80,26 @@
                     <div class="form-group">
                         <label for="escolha_aluno">Selecione um aluno</label>
                         <select name="escolha_aluno">
-                            <?php 
-                                while ($linha_alunos = mysqli_fetch_array($consulta_alunos)) {
-                                    $checked = $linha_alunos['RM'] == $linha_atual['RM']? 'true' : 'false';
-
-                                    echo '
-                                    <option 
-                                        value="'. $linha_alunos['RM'] .'"
-                                        cheked="'. $checked .'"
-                                    >
-                                        '. $linha_alunos['NOME'] .'
-                                    </option>';
-                                };
-                            ?>
+                            <option value="<?php echo $linha_atual['RM']; ?>">
+                                <?php echo $linha_atual['NOME']; ?>
+                            </option>
+                            
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="escolha_livro">Selecione um livro</label>
                         <select name="escolha_livro">
-                            <?php
-                                while ($linha_livros = mysqli_fetch_array($consulta_livros)) {
-                                    $checked = $linha_atual['ID_LIVRO'] == $linha_livros['ID_LIVRO']? 'true' : 'false';                                            
-
-                                    echo '
-                                    <option 
-                                        value="'. $linha_livros['ID_LIVRO'] .'"
-                                        cheked="'. $checked .'"
-                                    >
-                                        '. $linha_livros['TITULO'] .'
-                                    </option>';
-                                };
-                            ?>
+                            <option value="<?php echo $linha_atual['ID_LIVRO']; ?>">
+                                <?php echo $linha_atual['TITULO']; ?>
+                            </option>
+                            
                         </select>
                     </div>
                     
                     <div class="form-group">
                         <label for="dataretirada">Data de Retirada:</label>
-                        <input type="date" class="form-control" name="data-retirada" value="<?php echo $linha_atual['DATA_RETIRADA']; ?>">
+                        <input type="date" class="form-control" name="data-retirada" value="<?php echo $linha_atual['DATA_RETIRADA']; ?>" disabled>
                     </div>
                     
                     <div class="form-group">
@@ -148,6 +131,12 @@
 
     </main>
 
+<?php
+} else {
+        header('location: ../../index.php') ;
+    }
+
+?>
 <?php
     require '../componentes/footer.php';
 ?>

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <head>
   <meta charset="utf-8" >
   <meta name="viewport" content="width=device-width">
@@ -15,10 +17,7 @@
     </div>
 
     <navbar class="topnav">
-
       <ul class="list-link">
-
- 
         <li class="list-item">  
           <a href="<?php echo url_base(); ?>/views/alunos.php" class="custom-btn btn-14">Alunos</a>
         </li>
@@ -39,13 +38,15 @@
         <li class="list-item">
           <a href="<?php echo url_base(); ?>/views/Cadastros/emprestimo.php" class="custom-btn btn-14"> Cadastrar Emprestimos</a>
         </li>
-    
-      
-
+        <?php if (isset($_SESSION['login'])) { ?>
+        <li class="list-item">
+          <a href="<?php echo url_base(); ?>/views/logout.php" class="custom-btn btn-14">Sair</a>
+        </li>
+        <?php } ?>
       </ul>
-
     </navbar>
 </header>
+
 
 <br>
 <br>

@@ -1,6 +1,10 @@
 <?php
     require '../config.php';
     require './componentes/header.php';
+    
+    
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['usuario'];  
 ?>
 
 <center>
@@ -42,9 +46,12 @@
 </table>
 
 </center>
+<?php
+} else {
+        header('location: ../index.php') ;
+    }
 
-
-
+?>
 <?php
     require './componentes/footer.php';
 ?>

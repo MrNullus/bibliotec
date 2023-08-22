@@ -1,6 +1,10 @@
 <?php
     require '../../config.php';
     require '../componentes/header.php';
+
+    
+    if(isset($_SESSION['login'])) {
+        echo $_SESSION['usuario']; 
 ?>
 
 <link href="<?php echo url_base(); ?>/css/form.css" rel="stylesheet" type="text/css" />
@@ -248,6 +252,12 @@
     <br>
     <br>
 
+<?php
+} else {
+        header('location: ../../index.php') ;
+    }
+
+?>
 <?php
     require '../componentes/footer.php';
 ?>
